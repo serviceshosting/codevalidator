@@ -393,7 +393,7 @@ def __jalopy(original, options, use_nailgun=True):
             f.flush()
             destination = ['--flatdest', dest_dir]
             config = (['--convention', jalopy_config] if jalopy_config else [])
-            cmd = jalopy + destination + config + ['--', f.name]
+            cmd = jalopy + destination + config + [f.name]
             j = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=_env)
             stdout, stderr = j.communicate()
             if stderr or '[ERROR]' in stdout:
